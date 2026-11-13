@@ -7,6 +7,8 @@ RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
     && rm -rf /var/lib/apt/lists/*
 
+RUN pip install --no-cache-dir --upgrade pip==26.3
+
 WORKDIR /app
 
 COPY requirements.txt .
