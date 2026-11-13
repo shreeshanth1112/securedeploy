@@ -10,3 +10,6 @@ scripts/
 .env
 *.pem
 *.key
+.venv-ci/
+*.tar
+trivy-report.txt
