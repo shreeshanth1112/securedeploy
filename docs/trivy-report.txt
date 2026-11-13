@@ -6,8 +6,6 @@ Report Summary
 ├──────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
 │ /tmp/securedeploy-dev.tar (debian 13.7)                                      │   debian   │       205       │
 ├──────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
-│ Python                                                                       │ python-pkg │        3        │
-├──────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
 │ usr/local/lib/python3.12/site-packages/blinker-1.9.0.dist-info/METADATA      │ python-pkg │        0        │
 ├──────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
 │ usr/local/lib/python3.12/site-packages/click-8.5.1.dist-info/METADATA        │ python-pkg │        0        │
@@ -21,8 +19,6 @@ Report Summary
 │ usr/local/lib/python3.12/site-packages/jinja2-3.1.6.dist-info/METADATA       │ python-pkg │        0        │
 ├──────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
 │ usr/local/lib/python3.12/site-packages/markupsafe-3.0.4.dist-info/METADATA   │ python-pkg │        0        │
-├──────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
-│ usr/local/lib/python3.12/site-packages/pip-26.3.dist-info/METADATA           │ python-pkg │        0        │
 ├──────────────────────────────────────────────────────────────────────────────┼────────────┼─────────────────┤
 │ usr/local/lib/python3.12/site-packages/werkzeug-3.1.9.dist-info/METADATA     │ python-pkg │        0        │
 └──────────────────────────────────────────────────────────────────────────────┴────────────┴─────────────────┘
@@ -824,23 +820,3 @@ Total: 205 (UNKNOWN: 4, LOW: 65, MEDIUM: 89, HIGH: 47, CRITICAL: 0)
 │                         │                     │          │              │                                   │               │ and chsh when compiled...                                    │
 │                         │                     │          │              │                                   │               │ https://avd.aquasec.com/nvd/cve-2022-0563                    │
 └─────────────────────────┴─────────────────────┴──────────┴──────────────┴───────────────────────────────────┴───────────────┴──────────────────────────────────────────────────────────────┘
-
-Python (python-pkg)
-===================
-Total: 3 (UNKNOWN: 0, LOW: 1, MEDIUM: 1, HIGH: 1, CRITICAL: 0)
-
-┌────────────┬─────────────────────┬──────────┬────────┬───────────────────┬───────────────┬────────────────────────────────────────────────────────────┐
-│  Library   │    Vulnerability    │ Severity │ Status │ Installed Version │ Fixed Version │                           Title                            │
-├────────────┼─────────────────────┼──────────┼────────┼───────────────────┼───────────────┼────────────────────────────────────────────────────────────┤
-│ setuptools │ CVE-2025-47273      │ HIGH     │ fixed  │ 70.3.0            │ 78.1.1        │ setuptools: Path Traversal Vulnerability in setuptools     │
-│            │                     │          │        │                   │               │ PackageIndex                                               │
-│            │                     │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2025-47273                 │
-│            ├─────────────────────┼──────────┤        │                   ├───────────────┼────────────────────────────────────────────────────────────┤
-│            │ CVE-2026-59890      │ MEDIUM   │        │                   │ 83.0.0        │ setuptools: setuptools: MANIFEST.in exclusion bypass in    │
-│            │                     │          │        │                   │               │ sdist via Unicode normalization collision (NFC/NFD)...     │
-│            │                     │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2026-59890                 │
-│            ├─────────────────────┼──────────┤        │                   ├───────────────┼────────────────────────────────────────────────────────────┤
-│            │ GHSA-xmj3-9gf7-h52w │ LOW      │        │                   │ 84.1.0        │ setuptools: Windows path escape via namespace_packages.txt │
-│            │                     │          │        │                   │               │ during legacy wheel installation Description...            │
-│            │                     │          │        │                   │               │ https://github.com/advisories/GHSA-xmj3-9gf7-h52w          │
-└────────────┴─────────────────────┴──────────┴────────┴───────────────────┴───────────────┴────────────────────────────────────────────────────────────┘
