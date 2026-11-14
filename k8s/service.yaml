@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: securedeploy
+  namespace: securedeploy
+  labels:
+    app: securedeploy
+spec:
+  type: ClusterIP
+  selector:
+    app: securedeploy
+  ports:
+    - name: http
+      port: 80
+      targetPort: 5000
