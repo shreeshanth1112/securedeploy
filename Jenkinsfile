@@ -10,6 +10,7 @@ pipeline {
     environment {
         PATH = "${env.HOME}/.local/bin:${env.PATH}"
         IMAGE_NAME = 'localhost/securedeploy'
+        GHCR_IMAGE = 'ghcr.io/shreeshanth1112/securedeploy'
         TRIVY_NO_PROGRESS = 'true'
     }
 
@@ -73,12 +74,26 @@ pipeline {
                 '''
             }
         }
+
+        stage('Publish to GHCR') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'ghcr-token',
+                                                  usernameVariable: 'GHCR_USER',
+                                                  passwordVariable: 'GHCR_TOKEN')]) {
+                    sh '''#!/bin/sh -e
+                        echo "$GHCR_TOKEN" | podman login ghcr.io --username "$GHCR_USER" --password-stdin --authfile .ghcr-auth.json
+                        podman tag "$IMAGE_NAME:$GIT_SHORT" "$GHCR_IMAGE:$GIT_SHORT"
+                        podman push --authfile .ghcr-auth.json "$GHCR_IMAGE:$GIT_SHORT"
+                    '''
+                }
+            }
+        }
     }
 
     post {
         always {
             archiveArtifacts artifacts: 'trivy-report.txt', allowEmptyArchive: true
-            sh 'rm -f trivy-image.tar'
+            sh 'rm -f trivy-image.tar .ghcr-auth.json'
         }
         success {
             echo "Pipeline passed for ${env.GIT_SHORT}"

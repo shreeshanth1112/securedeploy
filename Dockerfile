@@ -22,6 +22,8 @@ RUN groupadd --system --gid 10001 appgroup \
 
 USER 10001:10001
 
+LABEL org.opencontainers.image.source="https://github.com/shreeshanth1112/securedeploy"
+
 EXPOSE 5000
 
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "-w", "2", "--access-logfile", "-", "--no-control-socket", "run:app"]

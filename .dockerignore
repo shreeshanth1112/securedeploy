@@ -13,3 +13,4 @@ scripts/
 .venv-ci/
 *.tar
 trivy-report.txt
+.ghcr-auth.json
